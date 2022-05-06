@@ -14,6 +14,16 @@ keymap("n", "<Leader>bd", "<cmd>Bdelete!<CR>", opts)
 keymap("n", "<Leader>bp", "<cmd>BufferLineCyclePrev<CR>", opts)
 keymap("n", "<Leader>bn", "<cmd>BufferLineCycleNext<CR>", opts)
 
+keymap("n", "<Leader>1", "<cmd>BufferLineGoToBuffer 1<CR>", opts)
+keymap("n", "<Leader>2", "<cmd>BufferLineGoToBuffer 2<CR>", opts)
+keymap("n", "<Leader>3", "<cmd>BufferLineGoToBuffer 3<CR>", opts)
+keymap("n", "<Leader>4", "<cmd>BufferLineGoToBuffer 4<CR>", opts)
+keymap("n", "<Leader>5", "<cmd>BufferLineGoToBuffer 5<CR>", opts)
+keymap("n", "<Leader>6", "<cmd>BufferLineGoToBuffer 6<CR>", opts)
+keymap("n", "<Leader>7", "<cmd>BufferLineGoToBuffer 7<CR>", opts)
+keymap("n", "<Leader>8", "<cmd>BufferLineGoToBuffer 8<CR>", opts)
+keymap("n", "<Leader>9", "<cmd>BufferLineGoToBuffer 9<CR>", opts)
+
 bufferline.setup({
 	options = {
 		numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
