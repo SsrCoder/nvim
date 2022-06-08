@@ -8,12 +8,19 @@ local actions = require("telescope.actions")
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 keymap("n", "<C-p>", ":Telescope fd<CR>", opts)
-keymap("n", "<C-f>", ":Telescope live_grep_raw<CR>", opts)
+keymap("n", "<C-f>", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", opts)
+-- keymap(
+-- 	"n",
+-- 	"<C-f>",
+-- 	":lua require 'telescope.builtin'.grep_string{ shorten_path = true, word_match = '-w', only_sort_text = true, search = '' }<CR>",
+-- 	opts
+-- )
 
 -- extensions
 pcall(require, "user.telescope.extensions.live_grep_raw")
 pcall(require, "user.telescope.extensions.fzf")
 pcall(require, "user.telescope.extensions.ui_select")
+pcall(require, "user.telescope.extensions.bookmarks")
 
 telescope.setup({
 	defaults = {
@@ -41,13 +48,15 @@ telescope.setup({
 		},
 		vimgrep_arguments = {
 			"rg",
-			"--color=never",
-			"--no-heading",
-			"--with-filename",
-			"--line-number",
 			"--column",
+			"--line-number",
+			"--no-heading",
 			"--smart-case",
-			"--hidden",
+			"--color=never",
+			"--with-filename",
+			"--ignore",
+			"--fixed-strings",
+			-- "--hidden",
 			"--glob=!.git/",
 		},
 		file_ignore_patterns = {},

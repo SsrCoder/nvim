@@ -33,6 +33,7 @@ require("user.tabnine")
 require("user.session-manager")
 require("user.dap")
 require("user.languages")
+require("user.bookmarks")
 
 vim.cmd([[
 	" auto jump to the line which latest closed

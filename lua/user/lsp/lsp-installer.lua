@@ -21,9 +21,14 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 
-	if server.name == "pyright" then
-		local pyright_opts = require("user.lsp.settings.pyright")
-		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+	-- if server.name == "pyright" then
+	-- 	local pyright_opts = require("user.lsp.settings.pyright")
+	-- 	opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+	-- end
+
+	if server.name == "jedi_language_server" then
+		local jedi_opts = require("user.lsp.settings.jedi")
+		opts = vim.tbl_deep_extend("force", jedi_opts, opts)
 	end
 
 	if server.name == "gopls" then

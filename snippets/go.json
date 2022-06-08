@@ -1,0 +1,12 @@
+{
+	"funcjson": {
+		"prefix": "funcjson",
+		"body": ["func toJson(data interface{}) string {"], 
+			"bytes, err := json.Marshal(data) ",
+			"if err != nil {", 
+			"panic(err)",
+			"}",
+			"return string(bytes)",
+			"}"
+	}
+}

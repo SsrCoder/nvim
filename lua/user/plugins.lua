@@ -77,8 +77,9 @@ return packer.startup(function(use)
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use("nvim-telescope/telescope-live-grep-raw.nvim")
+	use("nvim-telescope/telescope-live-grep-args.nvim")
 	use("nvim-telescope/telescope-ui-select.nvim")
+	use("tom-anders/telescope-vim-bookmarks.nvim")
 	-- use("nvim-telescope/telescope-media-files.nvim") -- only support on linux
 
 	-- Treesitter
@@ -135,6 +136,8 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-notify")
 	use("kosayoda/nvim-lightbulb")
 	use("Shatur/neovim-session-manager")
+	use({ "beloglazov/vim-textobj-quotes", requires = { "kana/vim-textobj-user" } }) -- text object for quotes
+	use("MattesGroeger/vim-bookmarks")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

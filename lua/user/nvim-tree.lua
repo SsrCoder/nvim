@@ -93,6 +93,11 @@ nvim_tree.setup({
 			quit_on_open = true, -- closes the explorer when opening a file
 			resize_window = true,
 		},
+		change_dir = {
+			enable = false,
+			global = false,
+			restrict_above_cwd = false,
+		},
 	},
 })
 

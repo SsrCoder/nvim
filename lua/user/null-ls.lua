@@ -18,11 +18,11 @@ null_ls.setup({
 		-- golang
 		formatting.gofmt,
 		formatting.goimports,
-		diagnostics.golangci_lint,
+		-- diagnostics.golangci_lint, -- do not open, it's too slow
 
 		-- python
 		formatting.black.with({ extra_args = { "--fast" } }),
-		diagnostics.pylint,
+		-- diagnostics.pylint,
 
 		-- javascript
 		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
