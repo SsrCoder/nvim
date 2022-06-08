@@ -9,6 +9,8 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 keymap("n", "<C-p>", ":Telescope fd<CR>", opts)
 keymap("n", "<C-f>", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", opts)
+-- keymap("n", "<C-f>", ":Telescope live_grep<CR>", opts)
+
 -- keymap(
 -- 	"n",
 -- 	"<C-f>",

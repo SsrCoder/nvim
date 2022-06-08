@@ -15,31 +15,6 @@ keymap("n", "<Space>e", ":NvimTreeFindFileToggle<CR>", opts)
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
-vim.g.nvim_tree_icons = {
-	default = "",
-	symlink = "",
-	git = {
-		unstaged = "",
-		staged = "S",
-		unmerged = "",
-		renamed = "➜",
-		deleted = "",
-		untracked = "U",
-		ignored = "◌",
-	},
-	folder = {
-		-- arrow_open = "",
-		-- arrow_closed = "",
-		default = "",
-		open = "",
-		empty = "",
-		empty_open = "",
-		symlink = "",
-	},
-}
-
 nvim_tree.setup({
 	auto_reload_on_write = true,
 	disable_netrw = true,
@@ -97,6 +72,38 @@ nvim_tree.setup({
 			enable = false,
 			global = false,
 			restrict_above_cwd = false,
+		},
+	},
+	renderer = {
+		icons = {
+			show = {
+				file = true,
+				folder = true,
+				folder_arrow = true,
+				git = true,
+			},
+			glyphs = {
+				default = "",
+				symlink = "",
+				git = {
+					unstaged = "",
+					staged = "S",
+					unmerged = "",
+					renamed = "➜",
+					deleted = "",
+					untracked = "U",
+					ignored = "◌",
+				},
+				folder = {
+					arrow_closed = "",
+					arrow_open = "",
+					default = "",
+					open = "",
+					empty = "",
+					empty_open = "",
+					symlink = "",
+				},
+			},
 		},
 	},
 })
