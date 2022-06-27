@@ -21,7 +21,7 @@ null_ls.setup({
 		-- diagnostics.golangci_lint, -- do not open, it's too slow
 
 		-- python
-		formatting.black.with({ extra_args = { "--fast" } }),
+		-- formatting.black.with({ extra_args = { "--fast" } }),
 		-- diagnostics.pylint,
 
 		-- javascript

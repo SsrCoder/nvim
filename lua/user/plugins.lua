@@ -125,7 +125,7 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim") -- indent line
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
-	use("github/copilot.vim") -- github auto complete plugin
+	-- use("github/copilot.vim") -- github auto complete plugin
 	use("kevinhwang91/nvim-hlslens")
 	use("AndrewRadev/switch.vim")
 	use("phaazon/hop.nvim")
