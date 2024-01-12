@@ -8,6 +8,7 @@ plugin "plugins.treesitter"
 plugin "plugins.mason"
 plugin "plugins.mason-lspconfig"
 plugin "plugins.schemastore"
+plugin "plugins.lspconfig"
 
 require "basic.lazy"
 
