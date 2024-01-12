@@ -3,6 +3,8 @@ local opts = { noremap = true, silent = true }
 
 keymap("n", "<C-i>", "<C-i>", opts)
 
+keymap("i", "jj", "<Esc>", opts)
+
 keymap("n", "<m-h>", "<C-w>h", opts)
 keymap("n", "<m-j>", "<C-w>j", opts)
 keymap("n", "<m-k>", "<C-w>k", opts)
