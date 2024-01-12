@@ -7,6 +7,7 @@ plugin "plugins.devicons"
 plugin "plugins.treesitter"
 plugin "plugins.mason"
 plugin "plugins.mason-lspconfig"
+plugin "plugins.schemastore"
 
 require "basic.lazy"
 
