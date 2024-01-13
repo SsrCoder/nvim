@@ -20,6 +20,10 @@ end
 
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
+
+	if client.supports_method "textDocument/inlayHint" then
+		vim.lsp.inlay_hint.enable(bufnr, true)
+	end
 end
 
 local servers = {
@@ -28,6 +32,7 @@ local servers = {
 	"gopls",
 	"jsonls",
 	"bashls",
+	"rust_analyzer",
 }
 
 function M.common_capabilities()
@@ -41,32 +46,33 @@ function M.common_capabilities()
 	return capabilities
 end
 
+local icons = require "basic.icons"
+local default_diagnostic_config = {
+	signs = {
+		active = true,
+		values = {
+			{ name = "DiagnosticSignError", text = icons.diagnostics.Error },
+			{ name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+			{ name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+			{ name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+		},
+	},
+	virtual_text = false,
+	update_in_insert = false,
+	underline = true,
+	severity_sort = true,
+	float = {
+		focusable = true,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+}
+
 function M.config()
 	local lspconfig = require "lspconfig"
-	local icons = require "basic.icons"
-	local default_diagnostic_config = {
-		signs = {
-			active = true,
-			values = {
-				{ name = "DiagnosticSignError", text = icons.diagnostics.Error },
-				{ name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-				{ name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-				{ name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
-			},
-		},
-		virtual_text = false,
-		update_in_insert = false,
-		underline = true,
-		severity_sort = true,
-		float = {
-			focusable = true,
-			style = "minimal",
-			border = "rounded",
-			source = "always",
-			header = "",
-			prefix = "",
-		},
-	}
 
 	vim.diagnostic.config(default_diagnostic_config)
 	for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
@@ -83,7 +89,7 @@ function M.config()
 			capabilities = M.common_capabilities(),
 		}
 
-		local require_ok, settings = pcall(require, "lsp_settings" .. server)
+		local require_ok, settings = pcall(require, "lsp_settings." .. server)
 		if require_ok then
 			opts = vim.tbl_deep_extend("force", settings, opts)
 		end

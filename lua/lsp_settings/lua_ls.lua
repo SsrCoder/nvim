@@ -2,7 +2,7 @@ return {
   settings = {
     Lua = {
       format = {
-        enable = false,
+        enable = true,
       },
       diagnostics = {
         globals = { "vim", "spec" },
@@ -20,6 +20,15 @@ return {
           [vim.fn.stdpath "config" .. "/lua"] = true,
         },
       },
+			hint = {
+				enable = true,
+				arrayIndex = "Disable",
+				await = true,
+				paramName = "Literal",
+				paramType = true,
+				semicolon = "All",
+				setType = false,
+			},
       telemetry = {
         enable = false,
       },
