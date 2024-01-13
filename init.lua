@@ -12,6 +12,7 @@ plugin "plugins.lspconfig"
 plugin "plugins.cmp"
 plugin "plugins.flash"
 plugin "plugins.copilot"
+-- plugin "plugins.none-ls"
 
 require "basic.lazy"
 
