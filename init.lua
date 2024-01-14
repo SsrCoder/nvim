@@ -15,7 +15,9 @@ plugin "plugins.copilot"
 plugin "plugins.none-ls"
 plugin "plugins.telescope"
 plugin "plugins.nvim-tree"
+plugin "plugins.comment"
 
+-- bottom of all plugins
 plugin "plugins.whichkey"
 require "basic.lazy"
 
