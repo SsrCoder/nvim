@@ -16,6 +16,7 @@ plugin "plugins.none-ls"
 plugin "plugins.telescope"
 plugin "plugins.nvim-tree"
 plugin "plugins.comment"
+plugin "plugins.lualine"
 
 -- bottom of all plugins
 plugin "plugins.whichkey"
