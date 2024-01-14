@@ -4,6 +4,10 @@ local M = {
 	-- cmd = {},
 }
 
+function M.config()
+	require("which-key").register(KEYMAPS)
+end
+
 -- local mappings = {
 -- 	b = { name = "Buffers" },
 -- 	f = { name = "Find" },

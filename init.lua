@@ -13,7 +13,9 @@ plugin "plugins.cmp"
 plugin "plugins.flash"
 plugin "plugins.copilot"
 plugin "plugins.none-ls"
-plugin "plugins.whichkey"
+plugin "plugins.telescope"
+plugin "plugins.nvim-tree"
 
+plugin "plugins.whichkey"
 require "basic.lazy"
 
