@@ -1,5 +1,6 @@
 local M = {
 	"williamboman/mason-lspconfig.nvim",
+	-- event = "VeryLazy",
 	dependencies = {
 		"williamboman/mason.nvim",
 	},

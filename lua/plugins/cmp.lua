@@ -6,14 +6,14 @@ local M = {
 			"hrsh7th/cmp-nvim-lsp",
 			event = "InsertEnter",
 		},
-		{
-			"hrsh7th/cmp-emoji",
-			event = "InsertEnter",
-		},
-		{
-			"hrsh7th/cmp-buffer",
-			event = "InsertEnter",
-		},
+		-- {
+		-- 	"hrsh7th/cmp-emoji",
+		-- 	event = "InsertEnter",
+		-- },
+		-- {
+		-- 	"hrsh7th/cmp-buffer",
+		-- 	event = "InsertEnter",
+		-- },
 		{
 			"hrsh7th/cmp-path",
 			event = "InsertEnter",
@@ -168,10 +168,10 @@ function M.config()
       { name = "luasnip" },
       -- { name = "cmp_tabnine" },
       { name = "nvim_lua" },
-      { name = "buffer" },
+      -- { name = "buffer" },
       { name = "path" },
       { name = "calc" },
-      { name = "emoji" },
+      -- { name = "emoji" },
       { name = "treesitter" },
       { name = "crates" },
       { name = "tmux" },
