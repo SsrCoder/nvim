@@ -17,8 +17,8 @@ plugin "plugins.telescope"
 plugin "plugins.nvim-tree"
 plugin "plugins.comment"
 plugin "plugins.lualine"
-plugin "plugins.navic"
 plugin "plugins.breadcrumbs"
+plugin "plugins.navic"
 plugin "plugins.harpoon"
 
 -- bottom of all plugins
