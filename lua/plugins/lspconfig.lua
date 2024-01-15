@@ -3,7 +3,7 @@ local M = {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "folke/neodev.nvim" }, -- TODO: learn about this
-		{ "lukas-reineke/lsp-format.nvim", lazy = true },
+		{ "lukas-reineke/lsp-format.nvim", lazy = true, cmd = "Format" },
 	},
 }
 
@@ -23,6 +23,7 @@ M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 	require("lsp-format").on_attach(client, bufnr)
 
+	-- there occur an error when edit a new file, so comment these lines unitl fix it
 	-- if client.supports_method "textDocument/inlayHint" then
 	-- 	vim.lsp.inlay_hint.enable(bufnr, true)
 	-- end
@@ -77,15 +78,17 @@ function M.config()
 	local lspconfig = require "lspconfig"
 
 	-- format on save sync when :wq command
+	require("lsp-format").setup {}
 	vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
 
 	vim.diagnostic.config(default_diagnostic_config)
-	for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
+	for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config() or {}, "signs", "values") or {}) do
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
 	end
 
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+
 	require("lspconfig.ui.windows").default_options.border = "rounded"
 
 	for _, server in pairs(servers) do

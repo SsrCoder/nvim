@@ -24,6 +24,7 @@ key_table {
 	["<Space>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Commands" },
 	["<Space>fl"] = { "<cmd>Telescope resume<cr>", "Last search" },
 	["<Space>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent file" },
+	["<Space>fb"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
 
 	["<Space>gb"] = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 	["<Space>gs"] = { "<cmd>Telescope git_status<cr>", "Open changed file" },
@@ -55,7 +56,6 @@ function M.config()
 			},
 		},
 	}
-
 end
 
 return M
