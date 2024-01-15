@@ -21,4 +21,3 @@ plugin "plugins.lualine"
 -- bottom of all plugins
 plugin "plugins.whichkey"
 require "basic.lazy"
-

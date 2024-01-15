@@ -3,6 +3,7 @@ local M = {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "folke/neodev.nvim" }, -- TODO: learn about this
+		{ "lukas-reineke/lsp-format.nvim", lazy = true },
 	},
 }
 
@@ -20,6 +21,7 @@ end
 
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
+	require("lsp-format").on_attach(client, bufnr)
 
 	-- if client.supports_method "textDocument/inlayHint" then
 	-- 	vim.lsp.inlay_hint.enable(bufnr, true)
@@ -52,12 +54,12 @@ local default_diagnostic_config = {
 		active = true,
 		values = {
 			{ name = "DiagnosticSignError", text = icons.diagnostics.Error },
-			{ name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-			{ name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-			{ name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+			{ name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
+			{ name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
+			{ name = "DiagnosticSignInfo",  text = icons.diagnostics.Information },
 		},
 	},
-	virtual_text = false,
+	virtual_text = true,
 	update_in_insert = false,
 	underline = true,
 	severity_sort = true,
@@ -73,6 +75,9 @@ local default_diagnostic_config = {
 
 function M.config()
 	local lspconfig = require "lspconfig"
+
+	-- format on save sync when :wq command
+	vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
 
 	vim.diagnostic.config(default_diagnostic_config)
 	for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
@@ -100,7 +105,6 @@ function M.config()
 
 		lspconfig[server].setup(opts)
 	end
-
 end
 
 return M
