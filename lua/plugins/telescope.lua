@@ -7,10 +7,13 @@ local M = {
 			build = "make",
 			lazy = true
 		},
+		{
+			"nvim-lua/plenary.nvim",
+		},
 	},
 }
 
-local keymaps = {
+key_table {
 	["<C-f>"] = { "<cmd>Telescope live_grep<cr>", "Find string fzf" },
 	["<C-p>"] = { "<cmd>Telescope find_files<cr>", "Find files" },
 
@@ -29,19 +32,18 @@ local keymaps = {
 
 
 function M.config()
-	local wk = require "which-key"
-	wk.register(keymaps)
-
 	local icons = require "basic.icons"
 	local actions = require "telescope.actions"
 
 	require("telescope").setup {
-		mappings = {
-			i = {
-				["<C-j>"] = actions.move_selection_next,
-				["<C-k>"] = actions.move_selection_previous,
-				["<C-n>"] = actions.cycle_history_next,
-				["<C-p>"] = actions.cycle_history_prev,
+		defaults = {
+			mappings = {
+				i = {
+					["<C-j>"] = actions.move_selection_next,
+					["<C-k>"] = actions.move_selection_previous,
+					["<C-n>"] = actions.cycle_history_next,
+					["<C-p>"] = actions.cycle_history_prev,
+				},
 			},
 		},
 		extensions = {
