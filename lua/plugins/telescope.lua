@@ -8,6 +8,12 @@ local M = {
 			lazy = true
 		},
 		{
+			"nvim-telescope/telescope-project.nvim",
+		},
+		{
+			"nvim-telescope/telescope-file-browser.nvim"
+		},
+		{
 			"nvim-lua/plenary.nvim",
 		},
 	},
@@ -21,10 +27,11 @@ key_table {
 	["<Space>fk"] = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 	["<Space>ft"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 	["<Space>fc"] = { "<cmd>Telescope commands<cr>", "Commands" },
-	["<Space>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Commands" },
+	["<Space>fp"] = { "<cmd>Telescope project<cr>", "Commands" },
 	["<Space>fl"] = { "<cmd>Telescope resume<cr>", "Last search" },
 	["<Space>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent file" },
 	["<Space>fb"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
+	["<Space>fe"] = { "<cmd>Telescope file_browser<cr>", "Buffers" },
 
 	["<Space>gb"] = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 	["<Space>gs"] = { "<cmd>Telescope git_status<cr>", "Open changed file" },
@@ -36,7 +43,8 @@ function M.config()
 	local icons = require "basic.icons"
 	local actions = require "telescope.actions"
 
-	require("telescope").setup {
+	local telescope = require("telescope")
+	telescope.setup {
 		defaults = {
 			mappings = {
 				i = {
@@ -56,6 +64,9 @@ function M.config()
 			},
 		},
 	}
+
+	telescope.load_extension('project')
+	telescope.load_extension('file_browser')
 end
 
 return M
