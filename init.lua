@@ -25,6 +25,7 @@ plugin "plugins.autopairs"
 plugin "plugins.notify"
 plugin "plugins.trouble"
 plugin "plugins.noice"
+plugin "plugins.osc52"
 
 -- bottom of all plugins
 plugin "plugins.whichkey"
