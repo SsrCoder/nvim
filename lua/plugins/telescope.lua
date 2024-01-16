@@ -25,13 +25,14 @@ key_table {
 
 	["<Space>fs"] = { "<cmd>Telescope grep_string<cr>", "Find string under your cursor" },
 	["<Space>fk"] = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-	["<Space>ft"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+	["<Space>fo"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 	["<Space>fc"] = { "<cmd>Telescope commands<cr>", "Commands" },
-	["<Space>fp"] = { "<cmd>Telescope project<cr>", "Commands" },
+	["<Space>fp"] = { "<cmd>Telescope project<cr>", "Projects" },
 	["<Space>fl"] = { "<cmd>Telescope resume<cr>", "Last search" },
 	["<Space>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent file" },
 	["<Space>fb"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
 	["<Space>fe"] = { "<cmd>Telescope file_browser<cr>", "Buffers" },
+	["<Space>ft"] = { "<cmd>TodoTelescope<cr>", "TODOs" },
 
 	["<Space>gb"] = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 	["<Space>gs"] = { "<cmd>Telescope git_status<cr>", "Open changed file" },
