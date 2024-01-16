@@ -23,6 +23,7 @@ plugin "plugins.harpoon"
 plugin "plugins.indent-blankline"
 plugin "plugins.autopairs"
 plugin "plugins.notify"
+plugin "plugins.trouble"
 
 -- bottom of all plugins
 plugin "plugins.whichkey"

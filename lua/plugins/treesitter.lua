@@ -2,6 +2,9 @@ local M = {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufReadPost", "BufNewFile" },
 	build = ":TSUpdate",
+	dependencies = {
+		{ "nvim-treesitter/nvim-treesitter-textobjects" },
+	}
 }
 
 function M.config()
@@ -15,6 +18,21 @@ function M.config()
 		},
 		indent = {
 			enable = true,
+		},
+		textobjects = {
+			select = {
+				enable = true,
+				lookahead = true,
+				keymaps = {
+					["af"] = "@function.outer",
+					["if"] = "@function.inner",
+					["ap"] = "@parameter.outer",
+					["ip"] = "@parameter.inner",
+					["ab"] = "@block.outer",
+					["ib"] = "@block.inner",
+				},
+				include_surrounding_whitespace = true,
+			},
 		},
 	}
 end
