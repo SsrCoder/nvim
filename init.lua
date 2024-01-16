@@ -20,6 +20,8 @@ plugin "plugins.lualine"
 plugin "plugins.breadcrumbs"
 plugin "plugins.navic"
 plugin "plugins.harpoon"
+plugin "plugins.indent-blankline"
+plugin "plugins.autopairs"
 
 -- bottom of all plugins
 plugin "plugins.whichkey"
