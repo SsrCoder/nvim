@@ -34,7 +34,7 @@ local M = {
 			},
 		},
 		{
-			"onsails/lspkind",
+			"onsails/lspkind.nvim",
 			event = "InsertEnter",
 		},
 		{
@@ -60,6 +60,7 @@ function M.config()
 	end
 
 	local icons = require "basic.icons"
+	local lspkind = require "lspkind"
 
 	cmp.setup {
 		snippet = {
