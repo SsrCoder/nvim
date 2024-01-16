@@ -2,7 +2,7 @@ local M = {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		{ "folke/neodev.nvim" }, -- TODO: learn about this
+		{ "folke/neodev.nvim" },
 		{ "lukas-reineke/lsp-format.nvim", lazy = true, cmd = "Format" },
 	},
 }

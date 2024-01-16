@@ -22,6 +22,7 @@ plugin "plugins.navic"
 plugin "plugins.harpoon"
 plugin "plugins.indent-blankline"
 plugin "plugins.autopairs"
+plugin "plugins.notify"
 
 -- bottom of all plugins
 plugin "plugins.whichkey"
