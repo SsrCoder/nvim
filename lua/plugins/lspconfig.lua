@@ -77,9 +77,10 @@ local default_diagnostic_config = {
 function M.config()
 	local lspconfig = require "lspconfig"
 
+	-- repeat save noti when multi windows, so comment this
 	-- format on save sync when :wq command
-	require("lsp-format").setup {}
-	vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
+	-- require("lsp-format").setup {}
+	-- vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
 
 	vim.diagnostic.config(default_diagnostic_config)
 	for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config() or {}, "signs", "values") or {}) do
