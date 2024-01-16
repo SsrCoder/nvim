@@ -34,6 +34,10 @@ local M = {
 			},
 		},
 		{
+			"onsails/lspkind",
+			event = "InsertEnter",
+		},
+		{
 			"hrsh7th/cmp-nvim-lua",
 		},
 	},

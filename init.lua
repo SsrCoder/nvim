@@ -28,6 +28,7 @@ plugin "plugins.notify"
 plugin "plugins.trouble"
 plugin "plugins.noice"
 plugin "plugins.osc52"
+plugin "plugins.alpha"
 
 -- bottom of all plugins
 plugin "plugins.whichkey"
