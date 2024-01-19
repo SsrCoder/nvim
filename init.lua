@@ -29,6 +29,7 @@ plugin "plugins.trouble"
 plugin "plugins.noice"
 plugin "plugins.osc52"
 plugin "plugins.alpha"
+plugin "plugins.wezterm"
 
 -- bottom of all plugins
 plugin "plugins.whichkey"
