@@ -40,14 +40,69 @@ local M = {
 		{
 			"hrsh7th/cmp-nvim-lua",
 		},
+
+		{
+			"zbirenbaum/copilot-cmp",
+			event = "InsertEnter",
+			config = function()
+				require("copilot_cmp").setup {};
+			end,
+			dependencies = {
+				{
+					"zbirenbaum/copilot.lua",
+					cmd = "Copilot",
+					event = "InsertEnter",
+					config = function()
+						require("copilot").setup {
+							panel = {
+								keymap = {
+									jump_next = "<c-j>",
+									jump_prev = "<c-k>",
+									accept = "<c-l>",
+									refresh = "r",
+									open = "<M-CR>",
+								},
+							},
+							suggestion = {
+								enabled = true,
+								auto_trigger = true,
+								keymap = {
+									accept = "<c-l>",
+									next = "<c-j>",
+									prev = "<c-k>",
+									dismiss = "<c-h>",
+								},
+							},
+							filetypes = {
+								markdown = true,
+								help = false,
+								gitcommit = false,
+								gitrebase = false,
+								hgcommit = false,
+								svn = false,
+								cvs = false,
+								["."] = false,
+							},
+							copilot_node_command = "node",
+						}
+
+						local opts = { noremap = true, silent = true }
+						vim.api.nvim_set_keymap("n", "<c-s>",
+							":lua require('copilot.suggestion').toggle_auto_trigger()<CR>", opts)
+
+						-- require("copilot_cmp").setup()
+					end,
+				}
+			}
+		},
 	},
 }
 
 function M.config()
-	-- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-	-- vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
-	-- vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
-	-- vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
+	vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+	vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
+	vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
+	vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
 
 	local cmp = require "cmp"
 	local luasnip = require "luasnip"
@@ -62,7 +117,9 @@ function M.config()
 	local icons = require "basic.icons"
 	local lspkind = require "lspkind"
 
+
 	cmp.setup {
+		-- preselect = cmp.PreselectMode.Item,
 		snippet = {
 			expand = function(args)
 				luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -112,6 +169,18 @@ function M.config()
 				"s",
 			}),
 		},
+		sorting = {
+			comparators = {
+				cmp.config.compare.offset,
+				cmp.config.compare.exact,
+				cmp.config.compare.score,
+				cmp.config.compare.kind,
+				cmp.config.compare.sort_text,
+				cmp.config.compare.length,
+				cmp.config.compare.order,
+			},
+			priority_weight = 2,
+		},
 		formatting = {
 			fields = { "kind", "abbr", "menu" },
 			format = function(entry, vim_item)
@@ -154,22 +223,7 @@ function M.config()
 		},
 		sources = {
 			{ name = "copilot" },
-			{
-				name = "nvim_lsp",
-				entry_filter = function(entry, ctx)
-					local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
-
-					if ctx.prev_context.filetype == "markdown" then
-						return true
-					end
-
-					if kind == "Text" then
-						return false
-					end
-
-					return true
-				end,
-			},
+			{ name = "nvim_lsp" },
 			{ name = "luasnip" },
 			-- { name = "cmp_tabnine" },
 			{ name = "nvim_lua" },

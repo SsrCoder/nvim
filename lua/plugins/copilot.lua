@@ -1,6 +1,6 @@
 local M = {
 	"github/copilot.vim",
-	event = "InsertEnter",
+	event = "VeryLazy",
 	cmd = "Copilot"
 }
 

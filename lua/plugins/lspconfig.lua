@@ -24,9 +24,9 @@ M.on_attach = function(client, bufnr)
 	require("lsp-format").on_attach(client, bufnr)
 
 	-- there occur an error when edit a new file, so comment these lines unitl fix it
-	-- if client.supports_method "textDocument/inlayHint" then
-	-- 	vim.lsp.inlay_hint.enable(bufnr, true)
-	-- end
+	if client.server_capabilities.inlayHintProvider then
+		vim.lsp.inlay_hint.enable(bufnr, true)
+	end
 end
 
 local servers = {
@@ -79,8 +79,8 @@ function M.config()
 
 	-- repeat save noti when multi windows, so comment this
 	-- format on save sync when :wq command
-	-- require("lsp-format").setup {}
-	-- vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
+	require("lsp-format").setup {}
+	vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
 
 	vim.diagnostic.config(default_diagnostic_config)
 	for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config() or {}, "signs", "values") or {}) do
