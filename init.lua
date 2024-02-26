@@ -31,6 +31,7 @@ plugin "plugins.osc52"
 plugin "plugins.alpha"
 plugin "plugins.wezterm"
 plugin "plugins.auto-session"
+-- plugin "plugins.codeium"
 
 -- bottom of all plugins
 plugin "plugins.whichkey"

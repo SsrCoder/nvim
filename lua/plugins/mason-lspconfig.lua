@@ -11,6 +11,7 @@ local servers = {
 	"gopls",
 	"pyright",
 	"jsonls",
+	"rust_analyzer",
 }
 
 function M.config()
