@@ -31,6 +31,8 @@ plugin "plugins.osc52"
 plugin "plugins.alpha"
 plugin "plugins.wezterm"
 plugin "plugins.auto-session"
+plugin "plugins.lsp-progress"
+plugin "plugins.gitsigns"
 -- plugin "plugins.codeium"
 
 -- bottom of all plugins

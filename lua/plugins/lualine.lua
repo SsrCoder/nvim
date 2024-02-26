@@ -12,9 +12,12 @@ function M.config()
 		options = {
 			ignore_focus = { "NvimTree" },
 		},
-		-- sections = {
-		-- 	-- lualine_z = {"copilot", "filetype"},
-		-- },
+		sections = {
+			lualine_c = {
+				require("lsp-progress").progress,
+			},
+			lualine_z = { "copilot", "filetype" },
+		},
 		extensions = { "quickfix", "man", "fugitive" },
 	}
 end
