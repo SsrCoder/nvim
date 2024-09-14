@@ -24,6 +24,11 @@ M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 	require("lsp-format").on_attach(client, bufnr)
 
+	if client.name == 'gopls' then
+		vim.api.nvim_command(
+			"au BufWritePre <buffer> lua vim.lsp.buf.code_action({ source = { organizeImports = true } })")
+	end
+
 	-- there occur an error when edit a new file, so comment these lines unitl fix it
 	if client.server_capabilities.inlayHintProvider then
 		vim.lsp.inlay_hint.enable(bufnr, true)

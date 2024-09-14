@@ -1,10 +1,10 @@
 local M = {
 	"nvim-tree/nvim-tree.lua",
-	-- event = "VeryLazy",
+	event = "VeryLazy",
 	cmd = { "NvimTreeToggle" }
 }
 
-key("<Space>e", { "<cmd>NvimTreeToggle<CR>", "Explorer" })
+key({ "<Space>e", "<cmd>NvimTreeToggle<CR>", desc = "Explorer" })
 
 -- local wk = require "which-key"
 -- wk.register {

@@ -5,7 +5,7 @@ local M = {
 }
 
 function M.config()
-	require("which-key").register(KEYMAPS)
+	require("which-key").add(KEYMAPS)
 end
 
 -- local mappings = {
@@ -14,7 +14,7 @@ end
 -- 	g = { name = "Git" },
 -- 	l = { name = "LSP" },
 -- }
--- 
+--
 -- function M.config()
 -- 	local which_key = require "which-key"
 -- 	which_key.setup {

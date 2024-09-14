@@ -1,3 +1,6 @@
+local lang = require "basic.languages"
+lang.enable { lang.Go, lang.Python, lang.Lua }
+
 require "basic.launch"
 require "basic.options"
 require "basic.keymaps"
@@ -29,11 +32,12 @@ plugin "plugins.trouble"
 -- plugin "plugins.noice"
 plugin "plugins.osc52"
 plugin "plugins.alpha"
-plugin "plugins.wezterm"
+-- plugin "plugins.wezterm"
 plugin "plugins.auto-session"
 plugin "plugins.lsp-progress"
 plugin "plugins.gitsigns"
 -- plugin "plugins.codeium"
+plugin "plugins.toggleterm"
 
 -- bottom of all plugins
 plugin "plugins.whichkey"
