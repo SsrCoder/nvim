@@ -7,9 +7,25 @@ local M = {
 	}
 }
 
+local ensure_installed = {}
+
+local lang = require "basic.languages"
+if lang.is_enabled(lang.Go) then
+	table.insert(ensure_installed, "go")
+end
+
+if lang.is_enabled(lang.Python) then
+	table.insert(ensure_installed, "python")
+end
+
+if lang.is_enabled(lang.Lua) then
+	table.insert(ensure_installed, "lua")
+end
+
 function M.config()
 	require("nvim-treesitter.configs").setup {
-		ensure_installed = { "lua", "go", "rust", "json", "jsonc", "markdown", "markdown_inline", "bash", "python" },
+		-- ensure_installed = { "lua", "go", "rust", "json", "jsonc", "markdown", "markdown_inline", "bash", "python" },
+		ensure_installed = ensure_installed,
 		sync_install = false,
 		auto_install = true,
 		highlight = {

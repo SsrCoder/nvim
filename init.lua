@@ -6,6 +6,7 @@ require "basic.options"
 require "basic.keymaps"
 
 plugin "plugins.colorscheme"
+-- plugin "plugins.colorscheme"
 plugin "plugins.devicons"
 plugin "plugins.treesitter"
 plugin "plugins.mason"
