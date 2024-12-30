@@ -10,4 +10,13 @@ local M = {
     },
 }
 
+vim.keymap.set('n', '<Leader>e', ':Neotree toggle position=left<CR>', { noremap = true, silent = true })
+
+function M.config() 
+	require('neo-tree').setup {}
+end
+
+-- FIXME: close neotree window when enter a file
+-- FIXME: close neotree window when close other windows
+
 return M

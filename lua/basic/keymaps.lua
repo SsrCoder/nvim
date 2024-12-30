@@ -1,3 +1,12 @@
+-- Maybe you will confuse about why <C-i> can not jump to forward anymore,
+-- As a terminal emulator, when user press a button, the application got some ascii code,
+-- <Tab> button and <C-i> button will got the same ascii text, and cannot separate.
+--
+-- To separate <C-i> from <tab>, you need your terminal support:
+--		Windows Terminal: edit your settings.json, and add the following text in the list "actions": { "command": { "action": "sendInput", "input": "\u001b[105;5u" }, "keys": "ctrl+i"}
+--
+-- Or, you can map <C-i> to a button unused like 'F12' in your system, an remap 'F12' as <C-i> in your vim config
+
 opts = { noremap = true, silent = true }
 
 vim.keymap.set({ "n", "x" }, "<Space>", "<Nop>", { silent = true })
@@ -34,3 +43,5 @@ vim.keymap.set('n', '<Leader>b', ':enew<CR>', opts)
 
 -- diagnostic
 vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, opts)
+
+vim.keymap.set('n', '<C-i>', '<C-i>', opts)
