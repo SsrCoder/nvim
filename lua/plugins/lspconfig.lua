@@ -1,7 +1,31 @@
 local M = {
 	"neovim/nvim-lspconfig",
 	-- lazy = true,
-	event = "VeryLazy"
+	-- event = "VeryLazy",
+	dependencies = { "saghen/blink.cmp" },
+}
+
+LANGUAGE_SERVER_CONFIGS = {
+	lua_ls = {
+		cmd = {
+			'lua-language-server',
+			-- '--locale="zh-cn"',
+		},
+		settings = {
+			Lua = {
+				workspace = {
+					library = {
+						[vim.fn.expand "$VIMRUNTIME/lua"] = true,
+						[vim.fs.joinpath(vim.fn.stdpath "config", "lua")] = true,
+						[vim.fs.joinpath(vim.fn.stdpath "data", "lazy")] = true,
+					},
+				},
+				hint = {
+					enable = true,
+				},
+			},
+		},
+	},
 }
 
 function M.config()
@@ -16,22 +40,11 @@ function M.config()
 	-- keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	-- keymap(bufnr, "n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
-	require("lspconfig").lua_ls.setup {
-		cmd = {
-			'lua-language-server',
-			'--locale="zh-cn"',
-		},
-		settings = {
-			Lua = {
-				workspace = {
-					library = {
-						[vim.fn.expand "$VIMRUNTIME/lua"] = true,
-						[vim.fs.joinpath(vim.fn.stdpath "config", "lua")] = true,
-					},
-				},
-			},
-		},
-	}
+	local lspconfig = require("lspconfig")
+	for server, config in pairs(LANGUAGE_SERVER_CONFIGS) do
+		config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+		lspconfig[server].setup(config)
+	end
 
 	vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
 end
