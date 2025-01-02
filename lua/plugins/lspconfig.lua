@@ -6,6 +6,7 @@ local M = {
 }
 
 LANGUAGE_SERVER_CONFIGS = {
+
 	lua_ls = {
 		cmd = {
 			'lua-language-server',
@@ -25,6 +26,23 @@ LANGUAGE_SERVER_CONFIGS = {
 				},
 			},
 		},
+	},
+
+	gopls = {
+		settings = {
+			gopls = {
+				---@See https://github.com/golang/tools/blob/master/gopls/doc/inlayHints.md
+				hints = {
+					rangeVariableTypes = true,
+					parameterNames = true,
+					constantValues = true,
+					assignVariableTypes = true,
+					compositeLiteralFields = true,
+					compositeLiteralTypes = true,
+					functionTypeParameters = true,
+				},
+			}
+		}
 	},
 }
 
@@ -46,7 +64,10 @@ function M.config()
 		lspconfig[server].setup(config)
 	end
 
-	vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
+	local opts = { noremap = true, silent = true }
+	vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
+	vim.keymap.set('n', 'gr', ':lua vim.lsp.buf.references()<CR>', opts)
+	vim.keymap.set('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opts)
 end
 
 return M
