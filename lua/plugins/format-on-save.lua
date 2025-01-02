@@ -1,4 +1,6 @@
-local M = { "elentok/format-on-save.nvim" }
+local M = {
+	"elentok/format-on-save.nvim"
+}
 
 function M.config()
 	local formatters = require("format-on-save.formatters")

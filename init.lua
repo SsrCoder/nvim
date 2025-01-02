@@ -19,5 +19,8 @@ Plugin 'plugins.lualine'
 Plugin 'plugins.treesitter'
 Plugin 'plugins.telescope'
 Plugin 'plugins.markdown'
+Plugin 'plugins.format-on-save'
+Plugin 'plugins.snacks'
+Plugin 'plugins.flash'
 
 require 'basic.lazy'
