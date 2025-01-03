@@ -11,7 +11,8 @@ function M.config()
 			project = {
 				enable = true,
 				action = function(path)
-					print(path)
+					vim.cmd('Telescope find_files cwd=' .. path)
+					vim.fn.chdir(path)
 				end
 			},
 		},

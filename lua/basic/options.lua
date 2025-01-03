@@ -46,3 +46,5 @@ vim.opt.showmode = false
 vim.opt.pumheight = 20
 
 vim.opt.conceallevel = 0
+
+vim.opt.autochdir = true
