@@ -7,12 +7,12 @@ local M = {
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 		"MunifTanjim/nui.nvim",
 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    },
+	},
 }
 
 vim.keymap.set('n', '<Leader>e', ':Neotree toggle position=left<CR>', { noremap = true, silent = true })
 
-function M.config() 
+function M.config()
 	require('neo-tree').setup {}
 end
 
