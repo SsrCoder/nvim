@@ -44,6 +44,12 @@ LANGUAGE_SERVER_CONFIGS = {
 			}
 		}
 	},
+
+	rust_analyzer = {
+		cmd = {
+			'rust-analyzer',
+		},
+	},
 }
 
 function M.config()

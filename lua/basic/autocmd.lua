@@ -1,0 +1,11 @@
+---Lazy load Shada file
+---@See https://shaobin-jiang.github.io/blog/posts/neovim-shada/
+-- vim.opt.shadafile = "NONE"
+-- vim.api.nvim_create_autocmd("CmdlineEnter", {
+-- 	once = true,
+-- 	callback = function()
+-- 		local shada = vim.fs.joinpath(vim.fn.stdpath("state"), "/shada/main.shada")
+-- 		vim.o.shadafile = shada
+-- 		vim.api.nvim_command("rshada! " .. shada)
+-- 	end,
+-- })
