@@ -50,6 +50,8 @@ LANGUAGE_SERVER_CONFIGS = {
 			'rust-analyzer',
 		},
 	},
+
+	pyright = {},
 }
 
 function M.config()

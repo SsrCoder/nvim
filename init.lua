@@ -1,6 +1,6 @@
 require 'basic.launch'
 
-COLORSCHEME = "nord" -- options: nord, tokyonight
+COLORSCHEME = "tokyonight" -- options: nord, tokyonight
 
 Language 'go'
 Language 'lua'

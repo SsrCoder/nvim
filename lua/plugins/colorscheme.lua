@@ -27,7 +27,7 @@ local tokyonight_module = {
 }
 
 function tokyonight_module.config()
-	vim.cmd.colorscheme(COLORSCHEME)
+	vim.cmd.colorscheme("tokyonight-storm")
 end
 
 local COLORSCHEME_PACKAGE_MAP = {
