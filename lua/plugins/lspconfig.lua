@@ -1,3 +1,4 @@
+---@See https://github.com/ibhagwan/fzf-lua/wiki
 local M = {
 	"neovim/nvim-lspconfig",
 	-- lazy = true,
@@ -42,7 +43,10 @@ LANGUAGE_SERVER_CONFIGS = {
 					functionTypeParameters = true,
 				},
 			}
-		}
+		},
+		on_attach = function(client, bufnr)
+			require "lsp_signature".on_attach({}, bufnr) -- Note: add in lsp client on-attach
+		end,
 	},
 
 	rust_analyzer = {
@@ -73,9 +77,13 @@ function M.config()
 	end
 
 	local opts = { noremap = true, silent = true }
-	vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
-	vim.keymap.set('n', 'gr', ':lua vim.lsp.buf.references()<CR>', opts)
-	vim.keymap.set('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opts)
+
+	vim.keymap.set('n', 'gd', ':lua require("fzf-lua").lsp_definitions({ jump_to_single_result = true })<CR>', opts)
+	vim.keymap.set('n', 'gr',
+		':lua require("fzf-lua").lsp_references({ ignore_current_line = false, includeDeclaration = false, jump_to_single_result = true })<CR>',
+		opts)
+	vim.keymap.set('n', 'gi', ':lua require("fzf-lua").lsp_implementations()<CR>', opts)
+	vim.keymap.set('n', 'ga', ':lua require("fzf-lua").lsp_code_actions()<CR>', opts)
 end
 
 return M

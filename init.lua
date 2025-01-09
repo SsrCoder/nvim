@@ -28,7 +28,7 @@ Plugin 'plugins.format-on-save'
 Plugin 'plugins.snacks'
 Plugin 'plugins.flash'
 Plugin 'plugins.autopairs'
-Plugin 'plugins.dashboard'
+-- Plugin 'plugins.dashboard'
 Plugin 'plugins.git-blame'
 
 require 'basic.lazy'

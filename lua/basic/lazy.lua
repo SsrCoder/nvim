@@ -27,7 +27,7 @@ require("lazy").setup({
 	checker = {
 		enabled = true,
 		notify = true,
-		frequency = 3600,
+		frequency = 86400,
 	},
 	change_detection = {
 		enabled = true,
