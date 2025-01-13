@@ -76,14 +76,13 @@ function M.config()
 		lspconfig[server].setup(config)
 	end
 
-	local opts = { noremap = true, silent = true }
-
-	vim.keymap.set('n', 'gd', ':lua require("fzf-lua").lsp_definitions({ jump_to_single_result = true })<CR>', opts)
-	vim.keymap.set('n', 'gr',
-		':lua require("fzf-lua").lsp_references({ ignore_current_line = false, includeDeclaration = false, jump_to_single_result = true })<CR>',
-		opts)
-	vim.keymap.set('n', 'gi', ':lua require("fzf-lua").lsp_implementations()<CR>', opts)
-	vim.keymap.set('n', 'ga', ':lua require("fzf-lua").lsp_code_actions()<CR>', opts)
+	require("which-key").add {
+		{ 'g',  group = 'Goto...' },
+		{ 'gd', ':lua require("fzf-lua").lsp_definitions({ jump_to_single_result = true })<CR>',                                                         desc = 'Goto Definition' },
+		{ 'gr', ':lua require("fzf-lua").lsp_references({ ignore_current_line = false, includeDeclaration = false, jump_to_single_result = true })<CR>', desc = 'Goto References' },
+		{ 'gi', ':lua require("fzf-lua").lsp_implementations()<CR>',                                                                                     desc = 'Goto Implementations' },
+		{ 'ga', ':lua require("fzf-lua").lsp_code_actions()<CR>',                                                                                        desc = 'Goto Code Actions' },
+	}
 end
 
 return M

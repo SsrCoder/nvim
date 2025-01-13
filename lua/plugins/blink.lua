@@ -28,7 +28,7 @@ local M = {
 				},
 			},
 			ghost_text = {
-				enabled = true, -- disable when copilot enable
+				enabled = false, -- disable when copilot enable
 			},
 		},
 
