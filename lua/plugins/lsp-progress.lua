@@ -1,5 +1,6 @@
 local M = {
 	"linrongbin16/lsp-progress.nvim",
+	event = "BufReadPost",
 }
 
 function M.config()

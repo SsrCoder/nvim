@@ -1,6 +1,7 @@
 ---@See https://github.com/elentok/format-on-save.nvim
 local M = {
-	"elentok/format-on-save.nvim"
+	"elentok/format-on-save.nvim",
+	event = "BufWritePre",
 }
 
 function M.config()

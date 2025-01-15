@@ -8,6 +8,10 @@ local M = {
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
+		appearance = {
+			use_nvim_cmp_as_default = false,
+			nerd_font_variant = "mono",
+		},
 		keymap = {
 			preset = "enter",
 			["<Tab>"] = { "select_next", "fallback" },
@@ -18,6 +22,11 @@ local M = {
 			cmdline = {},
 		},
 		completion = {
+			accept = {
+				auto_brackets = {
+					enabled = true,
+				},
+			},
 			menu = {
 				auto_show = function(ctx) return ctx.mode ~= 'cmdline' end,
 				draw = {
@@ -25,7 +34,12 @@ local M = {
 						{ "label",     "label_description", gap = 2 },
 						{ "kind_icon", "kind",              gap = 1 },
 					},
+					treesitter = { "lsp" },
 				},
+			},
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 0,
 			},
 			ghost_text = {
 				enabled = false, -- disable when copilot enable
@@ -41,7 +55,11 @@ local M = {
 		-- 	}
 		-- }
 	},
-	opts_extend = { "sources.default" }
+	opts_extend = {
+		"sources.completion.enabled_providers",
+		"sources.compat",
+		"sources.default",
+	}
 
 }
 
