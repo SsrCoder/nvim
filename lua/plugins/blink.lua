@@ -18,7 +18,8 @@ local M = {
 			["<S-Tab>"] = { "select_prev", "fallback" },
 		},
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			-- default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "buffer" },
 			cmdline = {},
 		},
 		completion = {

@@ -4,8 +4,10 @@ local M = {
 }
 
 function M.config()
-	require("todo-comments").setup {
+	require("todo-comments").setup {}
 
+	require("which-key").add {
+		{ "<Leader>t", ":TodoFzfLua<CR>", desc = "List Todos" },
 	}
 end
 
