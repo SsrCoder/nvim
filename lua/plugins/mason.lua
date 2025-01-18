@@ -12,12 +12,12 @@ local M = {
 
 function M.config()
 	require("mason").setup {
-		PATH =  "prepend"
+		PATH = "prepend"
 	}
 
 	require("mason-lspconfig").setup {
-		-- ensure_installed = { "lua_ls" },
-		automatic_installation = { exclude = { } },
+		-- ensure_installed = { "lua_ls", "astro" },
+		automatic_installation = { exclude = {} },
 	}
 end
 

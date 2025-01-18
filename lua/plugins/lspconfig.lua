@@ -58,6 +58,11 @@ LANGUAGE_SERVER_CONFIGS = {
 	pyright = {},
 
 	jsonls = {},
+
+	astro = {
+		cmd = { 'astro-ls', '--stdio' },
+		filetypes = { 'astro' },
+	},
 }
 
 function M.config()
