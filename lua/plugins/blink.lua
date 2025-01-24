@@ -3,7 +3,10 @@ local M = {
 	"saghen/blink.cmp",
 	version = "*",
 	event = { "VeryLazy" },
-	dependencies = { "rafamadriz/friendly-snippets" },
+	dependencies = {
+		"rafamadriz/friendly-snippets",
+		"fang2hou/blink-copilot",
+	},
 
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
@@ -19,8 +22,20 @@ local M = {
 		},
 		sources = {
 			-- default = { "lsp", "path", "snippets", "buffer" },
-			default = { "lsp", "path", "buffer" },
+			default = { "copilot", "lsp", "path", "buffer" },
 			cmdline = {},
+			providers = {
+				copilot = {
+					name = "copilot",
+					module = "blink-copilot",
+					score_offset = 100,
+					async = true,
+					opts = {
+						max_completions = 3,
+						max_attempts = 4,
+					}
+				},
+			},
 		},
 		completion = {
 			accept = {
@@ -43,7 +58,7 @@ local M = {
 				auto_show_delay_ms = 0,
 			},
 			ghost_text = {
-				enabled = false, -- disable when copilot enable
+				enabled = true,
 			},
 		},
 

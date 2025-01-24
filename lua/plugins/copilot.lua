@@ -8,13 +8,17 @@ local M = {
 function M.config()
 	require("copilot").setup {
 		panel = {
-			enable = true,
+			enable = false,
 			auto_fresh = true,
 		},
 		suggestion = {
-			enable = true,
-			auto_trigger = true,
-		}
+			enable = false,
+			auto_trigger = false,
+		},
+		filetypes = {
+			markdown = true,
+			help = true,
+		},
 	}
 end
 

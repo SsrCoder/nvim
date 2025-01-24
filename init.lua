@@ -16,6 +16,7 @@ Plugin 'plugins.dressing'
 Plugin 'plugins.bufferline'
 Plugin 'plugins.lualine'
 -- Plugin 'plugins.breadcrumbs'
+Plugin 'plugins.oil'
 
 
 Plugin 'plugins.which-key'
@@ -41,7 +42,7 @@ Plugin 'plugins.todo-comments'
 
 -- AI
 Plugin 'plugins.copilot'
-Plugin 'plugins.avante'
+-- Plugin 'plugins.avante'
 
 -- Golang Special
 if IsLanguageEnable('go') then

@@ -15,10 +15,10 @@ vim.keymap.set("i", "jj", "<Esc>", opts)
 vim.keymap.set({ "n", "x" }, "gy", '"+y', opts) -- copy to clipboard
 vim.keymap.set({ "n", "x" }, "gp", '"+p', opts) -- parse from clipboard
 
-vim.keymap.set({'n', 'x'}, 'x', '"_x', opts) -- keep registers
-vim.keymap.set({'n', 'x'}, 'X', '"_d', opts) -- keep registers
+vim.keymap.set({ 'n', 'x' }, 'x', '"_x', opts)  -- keep registers
+vim.keymap.set({ 'n', 'x' }, 'X', '"_d', opts)  -- keep registers
 
-vim.keymap.set('v', 'p', '"_dP', opts) -- keep yink text
+vim.keymap.set('v', 'p', '"_dP', opts)          -- keep yink text
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
 vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
@@ -28,6 +28,13 @@ vim.keymap.set('n', 'N', 'Nzzzv', opts)
 
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
+
+-- cursor move
+vim.keymap.set('i', '<C-h>', '<Left>', opts)
+vim.keymap.set('i', '<C-j>', '<Down>', opts)
+vim.keymap.set('i', '<C-k>', '<Up>', opts)
+vim.keymap.set('i', '<C-l>', '<Right>', opts)
+
 
 -- resize window
 vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
