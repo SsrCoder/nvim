@@ -52,3 +52,28 @@ vim.keymap.set('n', '<Leader>b', ':enew<CR>', opts)
 vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, opts)
 
 vim.keymap.set('n', '<C-i>', '<C-i>', opts)
+
+local function comment_append()
+	local line = vim.api.nvim_get_current_line()
+	local commentstring = vim.bo.commentstring:gsub("%%s", "")
+
+	if line:find "%S" then
+		vim.api.nvim_feedkeys("A" .. " " .. commentstring, "n", false)
+	else
+		vim.api.nvim_feedkeys("A" .. commentstring, "n", false)
+	end
+end
+
+local function comment_above()
+	local commentstring = vim.bo.commentstring:gsub("%%s", "")
+	vim.api.nvim_feedkeys("O" .. commentstring, "n", false)
+end
+
+local function comment_below()
+	local commentstring = vim.bo.commentstring:gsub("%%s", "")
+	vim.api.nvim_feedkeys("o" .. commentstring, "n", false)
+end
+
+vim.keymap.set('n', 'gcA', comment_append, opts)
+vim.keymap.set('n', 'gcO', comment_above, opts)
+vim.keymap.set('n', 'gco', comment_below, opts)
