@@ -41,7 +41,7 @@ Plugin 'plugins.git-blame'
 Plugin 'plugins.todo-comments'
 
 -- AI
-Plugin 'plugins.copilot'
+-- Plugin 'plugins.copilot'
 -- Plugin 'plugins.avante'
 
 -- Golang Special

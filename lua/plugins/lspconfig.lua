@@ -85,11 +85,11 @@ function M.config()
 
 	require("which-key").add {
 		{ 'g',  group = 'Goto...' },
-		{ 'gd', ':lua require("fzf-lua").lsp_definitions({ jump_to_single_result = true })<CR>',                                                         desc = 'Goto Definition' },
-		{ 'gr', ':lua require("fzf-lua").lsp_references({ ignore_current_line = false, includeDeclaration = false, jump_to_single_result = true })<CR>', desc = 'Goto References' },
-		{ 'gi', ':lua require("fzf-lua").lsp_implementations({ jump_to_single_result = true })<CR>',                                                     desc = 'Goto Implementations' },
-		{ 'ga', ':lua require("fzf-lua").lsp_code_actions()<CR>',                                                                                        desc = 'Goto Code Actions' },
-		{ 'gf', ':lua vim.lsp.buf.format()<CR>',                                                                                                         desc = 'Code Fromat' },
+		{ 'gd', ':lua require("fzf-lua").lsp_definitions({ jump1 = true })<CR>',                                                         desc = 'Goto Definition' },
+		{ 'gr', ':lua require("fzf-lua").lsp_references({ ignore_current_line = false, includeDeclaration = false, jump1 = true })<CR>', desc = 'Goto References' },
+		{ 'gi', ':lua require("fzf-lua").lsp_implementations({ jump1 = true })<CR>',                                                     desc = 'Goto Implementations' },
+		{ 'ga', ':lua require("fzf-lua").lsp_code_actions()<CR>',                                                                        desc = 'Goto Code Actions' },
+		{ 'gf', ':lua vim.lsp.buf.format()<CR>',                                                                                         desc = 'Code Fromat' },
 		{ 'gw', hidden = true },
 	}
 end

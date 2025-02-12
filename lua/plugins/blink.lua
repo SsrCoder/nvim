@@ -5,7 +5,7 @@ local M = {
 	event = { "VeryLazy" },
 	dependencies = {
 		"rafamadriz/friendly-snippets",
-		"fang2hou/blink-copilot",
+		-- "fang2hou/blink-copilot",
 	},
 
 	---@module 'blink.cmp'
@@ -22,21 +22,27 @@ local M = {
 		},
 		sources = {
 			-- default = { "lsp", "path", "snippets", "buffer" },
-			default = { "copilot", "lsp", "path", "buffer" },
+			default = { "lsp", "path", "buffer" },
 			cmdline = {},
-			providers = {
-				copilot = {
-					name = "copilot",
-					module = "blink-copilot",
-					score_offset = 100,
-					async = true,
-					opts = {
-						max_completions = 3,
-						max_attempts = 4,
-					}
-				},
-			},
+			providers = {},
 		},
+		-- sources = {
+		-- 	-- default = { "lsp", "path", "snippets", "buffer" },
+		-- 	default = { "copilot", "lsp", "path", "buffer" },
+		-- 	cmdline = {},
+		-- 	providers = {
+		-- 		copilot = {
+		-- 			name = "copilot",
+		-- 			module = "blink-copilot",
+		-- 			score_offset = 100,
+		-- 			async = true,
+		-- 			opts = {
+		-- 				max_completions = 3,
+		-- 				max_attempts = 4,
+		-- 			}
+		-- 		},
+		-- 	},
+		-- },
 		completion = {
 			accept = {
 				auto_brackets = {
