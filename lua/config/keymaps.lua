@@ -6,5 +6,5 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 map("i", "jj", "<Esc>", opts)
-map("n", "<C-p>", ":lua require('fzf-lua').files({ cwd_prompt = false, prompt = 'Files❯'})<CR>", opts)
-map("n", "<C-f>", ":lua require('fzf-lua').live_grep({ cwd_prompt = false, prompt = 'Files❯'})<CR>", opts)
+map("n", "<C-p>", ":lua require('fzf-lua').files({ cwd_prompt = false, prompt = 'Files❯ '})<CR>", opts)
+map("n", "<C-f>", ":lua require('fzf-lua').live_grep({ cwd_prompt = false, prompt = 'LiveGrep❯ '})<CR>", opts)
