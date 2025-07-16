@@ -1,12 +1,13 @@
+---@See https://github.com/folke/flash.nvim
 local M = {
 	"folke/flash.nvim",
-	event = "VeryLazy",
+	event = { "BufReadPost", "BufNewFile" },
+	---@module "flash"
+	---@type Flash.Config
+	opts = {},
 	keys = {
+
 	},
 }
-
-function M.config()
-	require("flash").setup {}
-end
 
 return M

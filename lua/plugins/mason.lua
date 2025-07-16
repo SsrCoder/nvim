@@ -1,14 +1,13 @@
 local M = {
 	"williamboman/mason.nvim",
-	cmd = { "Mason" },
-}
-
-function M.config()
-	require("mason").setup {
-		ui = {
-			border = "rounded",
+	-- lazy = false,
+	-- cmd = "Mason",
+	event = { "BufReadPre", "BufNewFile" },
+	opts = {
+		ensure_installed = {
+			"lua-language-server",
 		},
-	}
-end
+	},
+}
 
 return M
