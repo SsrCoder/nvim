@@ -1,3 +1,4 @@
+---@See: https://github.com/chrisgrieser/nvim-origami
 local M = {
 	"chrisgrieser/nvim-origami",
 	event = { "BufReadPost", "BufNewFile" },
@@ -9,6 +10,13 @@ local M = {
 
 	opts = {
 		useLspFoldsWithTreesitterFallback = true,
+		autoFold = {
+			enabled = false,
+		},
+		foldKeymaps = {
+			setup = false, -- modifies `h` and `l`
+			hOnlyOpensOnFirstColumn = false,
+		},
 	},
 }
 

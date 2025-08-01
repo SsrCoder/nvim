@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 vim.o.termguicolors = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 -- number
 vim.opt.number = true

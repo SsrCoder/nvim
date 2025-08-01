@@ -1,11 +1,12 @@
 local M = {
 	"williamboman/mason.nvim",
 	-- lazy = false,
-	-- cmd = "Mason",
+	cmd = "Mason",
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		ensure_installed = {
 			"lua-language-server",
+			"jsonls",
 		},
 	},
 }

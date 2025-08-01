@@ -7,11 +7,13 @@ ColorScheme 'themes.tokyonight'
 -- ColorScheme 'themes.catppuccin'
 
 -- ui
+Plugin "plugins.mini_icons"
 Plugin "plugins.lualine"
 Plugin "plugins.barbar"
 
 Plugin "plugins.lspconfig"
-Plugin "plugins.lsp_format"
+Plugin "plugins.conform"
+-- Plugin "plugins.lsp_format"
 
 Plugin "plugins.snacks.picker"
 Plugin "plugins.snacks.dashboard"
