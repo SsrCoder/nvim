@@ -41,5 +41,7 @@ Plugin "plugins.vim-cool" -- auto remove search highlight when cursor removed
 Plugin "plugins.render-markdown"
 Plugin "plugins.origami"
 -- Plugin "plugins.osc52" -- copy to clipboard, can pass through tmux and ssh
+Plugin "plugins.fidget"
+Plugin "plugins.todo-comments"
 
 require "lazy_nvim"
