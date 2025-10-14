@@ -43,5 +43,6 @@ Plugin "plugins.origami"
 -- Plugin "plugins.osc52" -- copy to clipboard, can pass through tmux and ssh
 Plugin "plugins.fidget"
 Plugin "plugins.todo-comments"
+Plugin "plugins.nvim-various-textobjs"
 
 require "lazy_nvim"
