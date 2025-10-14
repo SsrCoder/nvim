@@ -16,41 +16,45 @@ local support_lsp = {
 	'tailwindcss',
 }
 
+local function on_attach(client, bufnr)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover)
+	vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float,
+		{ buffer = bufnr, desc = "[LSP] Show diagnostic" })
+	vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "[LSP] Rename" })
+	vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action,
+		{ desc = "[LSP] Show Code Actions", buffer = bufnr, noremap = true, silent = true })
+
+	-- https://www.reddit.com/r/neovim/comments/1eyckqj/starting_with_inlay_hints_on_in_rust/
+	vim.defer_fn(function()
+		vim.lsp.inlay_hint.enable()
+	end, 500)
+end
+
 function M.config()
 	vim.diagnostic.config({
 		virtual_text = true,
 	})
 
 	local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-	vim.lsp.config('*', {
+	vim.lsp.config("*", {
 		capabilities = capabilities,
 	})
 
-	for _, value in ipairs(support_lsp) do
-		vim.lsp.enable(value, true)
-	end
-
-	vim.api.nvim_create_autocmd("LspAttach", {
-		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-		callback = function(ev)
-			local bufnr = ev.buf
-			local client = vim.lsp.get_client_by_id(ev.data.client_id)
+	vim.api.nvim_create_autocmd('LspAttach', {
+		group = vim.api.nvim_create_augroup('LspConfigGroup', { clear = true }),
+		callback = function(args)
+			local bufnr = args.buf
+			-- 通过 client_id 获取当前连接的 LSP 客户端
+			local client = vim.lsp.get_client_by_id(args.data.client_id)
 			if not client then
 				return
 			end
 
-			vim.keymap.set("n", "K", vim.lsp.buf.hover)
-			vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float,
-				{ buffer = ev.buf, desc = "[LSP] Show diagnostic" })
-			vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { buffer = ev.buf, desc = "[LSP] Rename" })
-			vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action,
-				{ desc = "[LSP] Show Code Actions", buffer = ev.buf, noremap = true, silent = true })
-
-			local on_attach = require("lsp-format").on_attach
 			on_attach(client, bufnr)
 		end,
 	})
+
+	vim.lsp.enable(support_lsp, true)
 end
 
 return M

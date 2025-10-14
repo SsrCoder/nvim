@@ -13,6 +13,7 @@ Plugin "plugins.barbar"
 
 Plugin "plugins.lspconfig"
 Plugin "plugins.conform"
+-- Plugin 'plugins.lsp-endhints'
 -- Plugin "plugins.lsp_format"
 
 Plugin "plugins.snacks.picker"

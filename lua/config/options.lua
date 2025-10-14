@@ -28,7 +28,7 @@ vim.opt.sidescrolloff = 10
 -- vim.opt.list = true
 
 vim.wo.cursorline = true
-vim.opt.colorcolumn = { 100 }
+vim.opt.colorcolumn = { 160 }
 
 local hasOSC52, _ = pcall(require, "vim.ui.clipboard.osc52")
 if hasOSC52 then
