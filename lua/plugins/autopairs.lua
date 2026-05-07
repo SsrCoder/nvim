@@ -1,9 +1,5 @@
-local M = {
-	"windwp/nvim-autopairs",
-	event = "InsertEnter",
-	opts = {
-		ignored_next_char = "[%w%.]",
-	},
+vim.pack.add {
+	'https://github.com/windwp/nvim-autopairs',
 }
 
-return M
+require('nvim-autopairs').setup {}

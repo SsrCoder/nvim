@@ -1,12 +1,8 @@
-return {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
+vim.pack.add { { src = "https://github.com/catppuccin/nvim", name = "catppuccin" } }
 
-    config = function()
-      -- load the colorscheme here
-	vim.cmd.colorscheme("catppuccin")
-    end,
-
-
+require("catppuccin").setup {
+	flavour = "mocha",
+	transparent_background = true,
 }
+
+vim.cmd.colorscheme "catppuccin-nvim"

@@ -1,49 +1,17 @@
-require "helper"
+require "helper.profiler"
+
 require "config.options"
+require "config.osc52"
 require "config.keymaps"
+require "config.autocmd"
 
+require "themes.catppuccin"
 
-ColorScheme 'themes.tokyonight'
--- ColorScheme 'themes.catppuccin'
+require "lsp.lua_ls"
+require "plugins.lspconfig"
+require "plugins.autopairs"
+require "plugins.snacks"
+require "plugins.blink"
 
--- ui
-Plugin "plugins.mini_icons"
-Plugin "plugins.lualine"
-Plugin "plugins.barbar"
-
-Plugin "plugins.lspconfig"
-Plugin "plugins.conform"
--- Plugin 'plugins.lsp-endhints'
--- Plugin "plugins.lsp_format"
-
-Plugin "plugins.snacks.picker"
-Plugin "plugins.snacks.dashboard"
-Plugin "plugins.snacks.animate"
-Plugin "plugins.snacks.explorer"
-Plugin "plugins.snacks.indent"
-Plugin "plugins.snacks.notifier"
-Plugin "plugins.snacks.scope"
-Plugin "plugins.snacks.terminal"
--- Plugin "plugins.snacks.profiler"
-
-Plugin "plugins.autopairs"
-Plugin "plugins.treesitter"
-Plugin "plugins.mason"
-Plugin "plugins.blink"
-Plugin "plugins.leetcode"
-Plugin "plugins.lazydev"
--- Plugin "plugins.indent_blankline"
-Plugin "plugins.which-key"
-Plugin "plugins.oil"
-Plugin "plugins.image"
-Plugin "plugins.flash"
-Plugin "plugins.store"    -- some plugins info, use ":Store"
-Plugin "plugins.vim-cool" -- auto remove search highlight when cursor removed
-Plugin "plugins.render-markdown"
-Plugin "plugins.origami"
--- Plugin "plugins.osc52" -- copy to clipboard, can pass through tmux and ssh
-Plugin "plugins.fidget"
-Plugin "plugins.todo-comments"
-Plugin "plugins.nvim-various-textobjs"
-
-require "lazy_nvim"
+-- test
+vim.api.nvim_create_user_command('Reload', ':restart', {})
