@@ -30,5 +30,7 @@ vim.opt.sidescrolloff = 10
 vim.wo.cursorline = true
 vim.opt.colorcolumn = { 160 }
 
+vim.opt.swapfile = false
+
 -- ui2
 vim.opt.cmdheight = 0

@@ -2,28 +2,32 @@ vim.pack.add({
 	"https://github.com/folke/snacks.nvim",
 })
 
-local ok, snacks = pcall(require, "snacks")
-
-if not ok then return end
-
 ---@type snacks.plugins.Config
 local opts = {
-	-- animate = {},
+	animate = {},
+	dashboard = { enabled = false },
 	explorer = {},
 	terminal = {
 		win = {
-			position = "float",
-			border = "rounded",
-			wo = { winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:Normal" },
+			style = "terminal",
 		},
 	},
 	statuscolumn = {},
 	profiler = {},
+	picker = {},
 	indent = { enabled = true },
 	words = { enabled = true },
+	notifier = { enabled = true },
+	styles = {
+		terminal = {
+			position = "float",
+			border = "rounded",
+			wo = { winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:Normal" },
+		},
+	}
 }
 
-snacks.setup(opts)
+require('snacks').setup(opts)
 
 -- explorer
 vim.keymap.set('n', '<leader>e', function() Snacks.explorer() end)

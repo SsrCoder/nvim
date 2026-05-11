@@ -68,6 +68,11 @@ cmp.setup {
 		ghost_text = {
 			enabled = true,
 		},
+		trigger = {
+			prefetch_on_insert = true,
+			show_on_keyword = true,
+			show_on_trigger_character = true,
+		},
 	},
 
 	-- Default list of enabled providers defined so that you can extend it
@@ -93,7 +98,7 @@ cmp.setup {
 		completion = {
 			list = {
 				selection = {
-					preselect = true,
+					preselect = false,
 				},
 			},
 		},
