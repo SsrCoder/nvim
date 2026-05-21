@@ -10,10 +10,16 @@ require "themes.catppuccin"
 
 require "lsp.lua_ls"
 require "lsp.gopls"
+require "plugins.mini_icons"
 require "plugins.lspconfig"
 require "plugins.autopairs"
 require "plugins.snacks"
 require "plugins.blink"
+require "plugins.lsp-format"
+require "plugins.tree-sitter-manager"
+require "plugins.glance" -- VSCode-like peek preview functionality for LSP locations
+require "plugins.oil"
 
 -- test
 vim.api.nvim_create_user_command('Reload', ':restart', {})
+vim.api.nvim_create_user_command('PluginsUpdate', function() vim.pack.update() end, {})

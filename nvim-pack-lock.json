@@ -16,6 +16,18 @@
       "rev": "13f9b7eaa9cd2901b4f8915cfb2483c3be4c8c20",
       "src": "https://github.com/xzbdmw/colorful-menu.nvim"
     },
+    "glance.nvim": {
+      "rev": "bf86d8b79dce808e65fdb6e9269d0b4ed6d2eefc",
+      "src": "https://github.com/dnlhc/glance.nvim"
+    },
+    "lsp-format.nvim": {
+      "rev": "42d1d3e407c846d95f84ea3767e72ed6e08f7495",
+      "src": "https://github.com/lukas-reineke/lsp-format.nvim"
+    },
+    "mini.icons": {
+      "rev": "9c7b1b90b15bdd69c52f6e31889dbc9987c30ec4",
+      "src": "https://github.com/nvim-mini/mini.icons"
+    },
     "nvim-autopairs": {
       "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
       "src": "https://github.com/windwp/nvim-autopairs"
@@ -24,9 +36,21 @@
       "rev": "cd576dd72d31ddffcbfa6d064c0dd697ca218758",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
+    "oil.nvim": {
+      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "render-markdown.nvim": {
+      "rev": "629eb9533ec989d9d5c6cab8f3ad5372422c24e0",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
       "src": "https://github.com/folke/snacks.nvim"
+    },
+    "tree-sitter-manager.nvim": {
+      "rev": "ae287204a4fe9174e82bad17c102e721e5aa8520",
+      "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     }
   }
 }
