@@ -19,6 +19,12 @@ require "plugins.lsp-format"
 require "plugins.tree-sitter-manager"
 require "plugins.glance" -- VSCode-like peek preview functionality for LSP locations
 require "plugins.oil"
+require "plugins.render-markdown"
+require "plugins.gitsigns"
+require "plugins.mini_surround"
+require "plugins.todo-comments"
+require "plugins.trouble"
+require "plugins.which-key"
 
 -- test
 vim.api.nvim_create_user_command('Reload', ':restart', {})
