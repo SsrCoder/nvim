@@ -25,5 +25,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set('n', 'gr', '<CMD>Glance references<CR>', opts)
 		vim.keymap.set('n', 'gi', '<CMD>Glance implementations<CR>', opts)
 		vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+
+		vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
 	end,
 })

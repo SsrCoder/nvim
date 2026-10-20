@@ -1,0 +1,16 @@
+vim.pack.add {
+	"https://github.com/obsidian-nvim/obsidian.nvim"
+}
+
+require("obsidian").setup {
+	legacy_commands = false,
+	picker = {
+		name = "snacks.picker",
+	},
+	workspaces = {
+		{
+			name = "SsrCoder",
+			path = "/Users/ssrcoder/Obsidian/ssr-fns"
+		}
+	}
+}

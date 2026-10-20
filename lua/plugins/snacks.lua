@@ -24,7 +24,36 @@ local opts = {
 			border = "rounded",
 			wo = { winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:Normal" },
 		},
-	}
+	},
+	-- image require magick command
+	--  Install:
+	--		MacOS: `brew install imagemagick`
+	image = {
+		enabled = true,
+		doc = {
+			enabled = true,
+			inline = true,
+		},
+		resolve = function(file, src)
+			-- 1. 如果是网络图片，直接返回 URL 字符串
+			if vim.startswith(src, "http://") or vim.startswith(src, "https://") then
+				return src
+			end
+			-- 2. 否则，将相对路径转换为绝对路径
+			local abs = vim.fn.expandcmd(src)
+			if vim.fn.filereadable(abs) == 1 then
+				return abs
+			end
+			-- 3. 如果以上都不行，尝试以当前文件所在目录为基准进行解析
+			local basedir = vim.fn.expand("%:p:h")
+			local resolved = basedir .. "/" .. src
+			if vim.fn.filereadable(resolved) == 1 then
+				return resolved
+			end
+			-- 4. 都失败了就返回 nil，Snacks 会跳过这个链接
+			return nil
+		end,
+	},
 }
 
 require('snacks').setup(opts)
